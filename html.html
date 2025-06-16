@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    
+    <meta charset="utf-8"/>
+    <title>Perfil Pessoal</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen"/>
+    <style>
+    #preloader {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        width: 100vw; height: 100vh;
+        background: #0a0a23;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.5s;
+    }
+    .loader-bar {
+        width: 100%;
+        height: 4px;
+        background: #26ff00;
+        position: relative;
+        overflow: hidden;
+    }
+    .loader-bar::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%;
+        height: 100%;
+        background: #f3f3f3;
+        animation: loading 2s linear infinite;
+    }
+    @keyframes loading {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+    }
+    </style>
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@0.9.518/build/spline-viewer.js"></script>
+</head>
+<body>
+    <div id="preloader">
+        <div class="loader-bar"></div>
+    </div>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="flex">
+                <div class="online">
+                    <h1 class="online-dot"></h1> Online
+                </div>
+                <nav>
+                    <ul>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+     </header>
+     <section class="banner">
+        <script src="menu.js"></script>
+        <div class="chain-bg">
+            <video autoplay loop muted playsinline class="video-bg">
+                <source src="92266-634052242_small.mp4" type="video/mp4">
+            </video>
+            <spline-viewer class="corrente" url="https://prod.spline.design/zYTGz8pox635pEO6/scene.splinecode"></spline-viewer>
+        </div>
+        <h1 class="centralizado">GABRIEL ALVES</h1>      
+        <h2 class="software">Software Developer</h2>
+    </section>
+    <div class="conteudo-abaixo-corrente">
+        <div class="about-me-section">
+            <h2 class="about-me">About me</h2>
+            <p class="about-me2">
+                Hello, my name is Gabriel Alves. I am a Computer Science student at the Pontifícia Universidade Católica do Paraná (PUCPR). I am always seeking to learn new technologies and improve my skills as a developer.
+            </p>
+        </div>
+        <div class="about-me-box">
+            <div class="about-me-content">
+                <div id="languagesSection" style="display: none;">
+                    <h2 class="languages">Languages</h2>
+                    <p class="languages2">Portuguese</p>
+                    <p class="languages3">English</p>
+                    <p class="languages4">English course completed at Wizard (2022 - 2024)</p>
+                </div>
+                <div id="contactSection" style="display: none;">
+                    <h2 class="contact">Contact</h2>
+                    <h3 class="icon">Phone</h3>  <p class="info">+55 41 99209-5928</p>
+                    <h3 class="icon">Email</h3> <p class="info">gabealves0310@gmail.com</p>
+                    <h3 class="icon">Nationality</h3>  <p class="info">Brazilian</p>
+                </div>
+                <div id="iconesLinguagens" style="display: none;">
+                    <div class="icones-linguagens">
+                        <button><img src="python-removebg-preview.png" alt="PYTHON"/></button>
+                        <button><img src="html_logo-removebg-preview.png" alt="HTML"/></button>
+                        <button><img src="CSS-Logo-2011.png" alt="CSS"/></button>
+                        <button><img src="JavaScript-Symbol.png" alt="Java Script"/></button>
+                    </div>
+                </div>
+            </div>
+            <div class="about-me-buttons">
+                <div class="banner-buttons">
+                    <button id="showLanguagesBtn" class="banner-buttons">Show Languages</button>
+                    <button id="showContactBtn" class="banner-buttons">Show Contact</button>
+                    <button id="showIconsBtn" class="banner-buttons">Show Programming Languages</button>
+                </div>
+            </div>
+        </div>
+        <h2 class="Entre-em-Contato">Plese contact me </h2>
+        <p class="achar">If you want to know more about me, my projects or want to get in touch for possible partnerships or opportunities:</p>
+    </div>
+   <script>
+    window.addEventListener('load', function() {
+        var preloader = document.getElementById('preloader');
+        setTimeout(function() {
+            preloader.style.opacity = '0';
+            setTimeout(function() { preloader.style.display = 'none'; }, 500);
+        }, 2000); 
+    });
+
+document.getElementById('showLanguagesBtn').onclick = function() {
+    var langDiv = document.getElementById('languagesSection');
+    var contactDiv = document.getElementById('contactSection');
+    var iconsDiv = document.getElementById('iconesLinguagens');
+    if (langDiv.style.display === "none") {
+        langDiv.style.display = "block";
+        contactDiv.style.display = "none";
+        iconsDiv.style.display = "none";
+        this.textContent = "Hide Languages";
+        document.getElementById('showContactBtn').textContent = "Show Contact";
+        document.getElementById('showIconsBtn').textContent = "Show Programming Languages";
+    } else {
+        langDiv.style.display = "none";
+        this.textContent = "Show Languages";
+    }
+};
+
+document.getElementById('showContactBtn').onclick = function() {
+    var langDiv = document.getElementById('languagesSection');
+    var contactDiv = document.getElementById('contactSection');
+    var iconsDiv = document.getElementById('iconesLinguagens');
+    if (contactDiv.style.display === "none") {
+        contactDiv.style.display = "block";
+        langDiv.style.display = "none";
+        iconsDiv.style.display = "none";
+        this.textContent = "Hide Contact";
+        document.getElementById('showLanguagesBtn').textContent = "Show Languages";
+        document.getElementById('showIconsBtn').textContent = "Show Programming Languages";
+    } else {
+        contactDiv.style.display = "none";
+        this.textContent = "Show Contact";
+    }
+};
+
+document.getElementById('showIconsBtn').onclick = function() {
+    var langDiv = document.getElementById('languagesSection');
+    var contactDiv = document.getElementById('contactSection');
+    var iconsDiv = document.getElementById('iconesLinguagens');
+    if (iconsDiv.style.display === "none") {
+        iconsDiv.style.display = "block";
+        langDiv.style.display = "none";
+        contactDiv.style.display = "none";
+        this.textContent = "Hide Programming Languages";
+        document.getElementById('showLanguagesBtn').textContent = "Show Languages";
+        document.getElementById('showContactBtn').textContent = "Show Contact";
+    } else {
+        iconsDiv.style.display = "none";
+        this.textContent = "Show Programming Languages";
+    }
+};
+</script>
+</body>
+</html>
